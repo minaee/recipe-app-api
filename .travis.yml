@@ -1,0 +1,12 @@
+language: python
+
+python:
+    - "3.7"
+
+services: 
+    - docker
+
+before_scripts: python3.7 -m pip install docker-compose
+
+script:
+    - docker-compose ru app sh -c "python3.7 manage.py test && flake8"
