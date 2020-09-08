@@ -9,4 +9,4 @@ services:
 before_scripts: python3.7 -m pip install docker-compose
 
 script:
-    - docker-compose ru app sh -c "python3.7 manage.py test && flake8"
+    - docker-compose run app sh -c "python3.7 manage.py test && flake8"
