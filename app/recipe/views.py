@@ -59,7 +59,7 @@ class RecipeViewSet(viewsets.ModelViewSet):
         """Retrieve the recipes for the authenticated user"""
         # tags = self.request.query_params.get('tags')
         # ingredients = self.request.query_params.get('ingredients')
-        # queryset = self.queryset
+        queryset = self.queryset
         # if tags:
         #     tag_ids = self._params_to_ints(tags)
         #     queryset = queryset.filter(tags__id__in=tag_ids)
@@ -67,7 +67,7 @@ class RecipeViewSet(viewsets.ModelViewSet):
         #     ingredient_ids = self._params_to_ints(ingredients)
         #     queryset = queryset.filter(ingredients__id__in=ingredient_ids)
 
-        return self.queryset.filter(user=self.request.user)
+        return queryset.filter(user=self.request.user)
 
     def get_serializer_class(self):
         """Return appropriate serializer class"""
